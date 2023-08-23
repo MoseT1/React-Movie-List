@@ -7,13 +7,15 @@
   min-width: 15%;
 }
 
-.movie_item > img {
-}
 
 .movie_item_content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.movie_item_content > div {
+  color : blue;
 }
 
 .movie_list {

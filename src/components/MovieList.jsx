@@ -1,11 +1,18 @@
 import MovieItem from "./MovieItem";
-import movieList from "../static/movieList";
+import {useState, useEffect} from 'react';
 
 export default function MovieList() {
-  console.log(movieList.data);
+  const SERVER_API = "https://moviestates.codestates-seb.link/movies/top"
+  const [movieList, setMovieList] = useState([]);
+  useEffect(() => {
+    fetch(SERVER_API)
+      .then((response) => response.json())
+      .then((data) => setMovieList(data.data))
+  }, [])
+
   return (
     <div className="movie_list">
-      {movieList.data.map((movie) => (
+      {movieList.map((movie) => (
         <MovieItem movie={movie} />
       ))}
     </div>
